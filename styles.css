@@ -1,0 +1,198 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Helvetica', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 12px;
+    box-sizing: border-box;
+}
+
+#container{
+    display: grid;
+    grid-template-columns: 200px auto;
+    height: auto; /* Allow the container to expand based on content */
+    width: 100vw;
+    position: relative;
+}
+
+#preview, #typing{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    width: 100%;
+    height: 100%;
+}
+
+#typing {
+    position: relative;
+    cursor: text;
+}
+
+#main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    overflow: auto;
+    background-color: #ffffff;
+}
+
+svg{
+    overflow: visible;
+    width: 100%;
+    height: auto; /* Ensure SVG scales with content */
+    /* border: 1px solid red; */
+}
+
+.grid line{
+    stroke: none    ;
+}
+
+svg.showGrid .grid line{
+    stroke: gray !important;
+}
+
+.grid-line.dragging {
+    background: rgba(100, 150, 255, 0.8);
+    box-shadow: 0 0 10px rgba(100, 150, 255, 0.8);
+}
+
+aside{
+    padding: 10px;
+}
+
+#controls label{
+    display: block;
+    padding-top: 20px;
+}
+
+#footer{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    cursor: pointer;
+    padding: 20px;
+}
+
+/* 下拉菜单样式 */
+select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 12px;
+    background-color: white;
+    cursor: pointer;
+}
+
+select:hover {
+    border-color: #666;
+}
+
+select:focus {
+    outline: none;
+    border-color: #0066cc;
+    box-shadow: 0 0 4px rgba(0, 102, 204, 0.5);
+}
+
+/* 颜色输入框样式 */
+input[type=color] {
+    width: 100%;
+    height: 40px;
+    padding: 2px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 8px;
+}
+
+input[type=color]:hover {
+    border-color: #666;
+}
+
+input[type=color]:focus {
+    outline: none;
+    border-color: #0066cc;
+    box-shadow: 0 0 4px rgba(0, 102, 204, 0.5);
+}
+
+/* Styling sliders */
+
+input[type=range] {
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    background: black;
+    height: 1px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none; 
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: black;
+    cursor: pointer;
+}
+
+/* 预设控制栏样式 */
+#preset-panel {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: white;
+    border: 2px solid #333;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 200;
+    min-width: 200px;
+}
+
+.preset-header {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 12px;
+    color: #333;
+    border-bottom: 2px solid #333;
+    padding-bottom: 8px;
+}
+
+#preset-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.preset-btn {
+    padding: 10px 15px;
+    background: #f0f0f0;
+    border: 2px solid #999;
+    border-radius: 6px;
+    font-size: 13px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    color: #333;
+}
+
+.preset-btn:hover {
+    background: #e0e0e0;
+    border-color: #555;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.preset-btn.active {
+    background: #4CAF50;
+    color: white;
+    border-color: #2e7d32;
+    box-shadow: 0 2px 8px rgba(76, 175, 80, 0.4);
+}
